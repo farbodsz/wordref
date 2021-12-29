@@ -1,8 +1,24 @@
-# wordref [![NPM version][npm-image]][npm-url]
+# wordref
 
-> An api to use the worldreference.com information
+Word reference web scraper for returning JSON.
 
 ## Installation
+
+### From source
+
+I have a script to install this package from source, so that I don't need to
+publish it to NPM.
+
+```sh
+$ git clone https://github.com/farbodsz/wordref && cd wordref
+$ chmod +x install.sh
+$ ./install.sh
+```
+
+### NPM
+
+The [package from which this is forked](https://github.com/William5553/wordref)
+can be installed with:
 
 ```sh
 $ npm install --save wordref
@@ -10,23 +26,21 @@ $ npm install --save wordref
 
 ## Usage
 
-```js
-const wr = require('wordref');
-/**
- * wr
- * Gets the result for the given word, available languages: 'en', 'fr', 'es', 'it'
- * @param  {String}   word      Word to be searched
- * @param  {String}   from      from language, default 'en'
- * @param  {String}   to        to language, default 'fr'
- * @param  {function} callback  callback function
- * @return {Object}             Object with the word data
- */
-wr('Rainbow', 'en', 'fr', result => {
-  console.log(result);
-});
+```javascript
+const wr = require("wordref");
+
+const word = "Rainbow";
+const fromLang = "en";
+const toLang = "fr";
+
+wordref(word, fromLang, toLang).then((result) =>
+  console.log(JSON.stringify(result, null, 2))
+);
 ```
-Return:
-``` javascript
+
+Returns:
+
+```javascript
 {
   "word": "Rainbow",
   "pronWR": "/ˈreɪnˌbəʊ/",
@@ -65,10 +79,11 @@ Return:
   ]
 }
 ```
+
 ## License
 
-MIT © [Fabian Gutierrez](fabiangutierrez.co)
-Original: https://github.com/fega/wordreference-api
+- [Original repo](https://github.com/fega/wordreference-api)
+- [Repo from which this is forked](https://github.com/William5553/wordref)
 
 
 [npm-image]: https://badge.fury.io/js/wordref.svg
