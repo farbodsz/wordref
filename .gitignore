@@ -1,6 +1,7 @@
 node_modules/
-*.log
 package-lock.json
+
+*.log
 shrinkwrap.yaml
-# error.txt
-# debug.txt
+
+*.tgz
